@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "213970192481",
+    "project_id": "applepiexhibitionchatting",
+    "storage_bucket": "applepiexhibitionchatting.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:213970192481:android:cd3e50c711c6ed43218220",
+        "android_client_info": {
+          "package_name": "com.example.applepiexhibitionchattingapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "213970192481-r7fd18qjk7lklva9m9m8gqsfbpoj3n71.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDumAf-nMfuy4BFlwLI6BUweFfcxeB0izM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "213970192481-r7fd18qjk7lklva9m9m8gqsfbpoj3n71.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

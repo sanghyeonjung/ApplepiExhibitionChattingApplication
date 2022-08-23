@@ -9,7 +9,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/mainTopLayout"
         android:layout_width="match_parent"
-        android:layout_height="39dp"
+        android:layout_height="60dp"
         android:background="#b52426"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -17,74 +17,117 @@
 
         <ImageView
             android:id="@+id/mainLogo"
-            android:layout_width="29dp"
-            android:layout_height="29dp"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:layout_marginStart="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginBottom="8dp"
             android:fontFamily="@font/gilroyextrabold"
-            android:lineHeight="19sp"
+            android:lineHeight="28sp"
             android:text="Chatting App:plication"
             android:textColor="#FFFFFF"
-            android:textSize="15sp"
+            android:textSize="23sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@id/mainLogo"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageButton
             android:id="@+id/mainOptionImageButton"
-            android:layout_width="21dp"
-            android:layout_height="21dp"
-            android:layout_marginEnd="15dp"
-            android:layout_marginBottom="4dp"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginEnd="22dp"
+            android:layout_marginBottom="6dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/mainKeywordLayout"
         android:layout_width="match_parent"
-        android:layout_height="69dp"
+        android:layout_height="104dp"
         android:background="#f9f9f9"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/mainTopLayout">
 
         <TextView
+            android:id="@+id/mainKeywordTextview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="12dp"
             android:fontFamily="@font/suitbold"
             android:text="키워드"
             android:textColor="#1d1d1d"
-            android:textSize="13sp"
+            android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="26dp"
-            android:layout_marginStart="13dp"
-            android:layout_marginEnd="13dp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_height="39dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="20dp"
+            android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/mainKeywordTextview">
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/mainButtonFragmentWebtoon"
-                android:layout_width="81dp"
-                android:layout_height="26dp"
-                android:background="@drawable/custom_fragmentbutton_selector"
+                android:layout_width="0dp"
+                android:layout_height="39dp"
+                android:layout_weight="1"
+                android:background="@drawable/custom_round_unclicked_fragmentbutton"
                 android:fontFamily="@font/suitbold"
                 android:text="웹툰"
-                android:textColor="#ffffff"
+                android:textColor="#ff5959" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/mainButtonFragmentMovie"
+                android:layout_width="0dp"
+                android:layout_height="39dp"
+                android:layout_marginStart="4dp"
+                android:layout_weight="1"
+                android:background="@drawable/custom_round_unclicked_fragmentbutton"
+                android:fontFamily="@font/suitbold"
+                android:text="영화"
+                android:textColor="#ff5959" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/mainButtonFragmentDrama"
+                android:layout_width="0dp"
+                android:layout_height="39dp"
+                android:layout_marginStart="4dp"
+                android:layout_weight="1"
+                android:background="@drawable/custom_round_unclicked_fragmentbutton"
+                android:fontFamily="@font/suitbold"
+                android:text="드라마"
+                android:textColor="#ff5959"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toEndOf="@id/mainButtonFragmentMovie"
                 app:layout_constraintTop_toTopOf="parent" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/suitsemibold"
+        android:text="채팅방 목록"
+        android:textColor="#1d1d1d"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mainKeywordLayout" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

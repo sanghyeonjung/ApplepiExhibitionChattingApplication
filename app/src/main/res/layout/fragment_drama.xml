@@ -5,6 +5,11 @@
     android:layout_height="match_parent"
     tools:context=".DramaFragment">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="drama"
+        android:textSize="10sp" />
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/fragmentDramaChattingListRecyclerview"
         android:layout_width="match_parent"

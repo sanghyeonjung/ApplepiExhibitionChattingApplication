@@ -5,7 +5,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.FrameLayout
+import android.widget.TextView
 import androidx.fragment.app.Fragment
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -14,7 +18,9 @@ class MainActivity : AppCompatActivity() {
         val fragmentWebtoonBtn = findViewById<Button>(R.id.mainButtonFragmentWebtoon)
         val fragmentMovieBtn = findViewById<Button>(R.id.mainButtonFragmentMovie)
         val fragmentDramaBtn = findViewById<Button>(R.id.mainButtonFragmentDrama)
-
+        val test = findViewById<TextView>(R.id.mainTestTextview)
+        var database: DatabaseReference = Firebase.database.reference
+        database.child("chatrooms").child("chatroomname").child("comments").child("commentname").child("message").setValue("write")
         fragmentWebtoonBtn.setOnClickListener {
             fragmentWebtoonBtn.setBackgroundResource(R.drawable.custom_round_click_fragmentbutton)
             fragmentWebtoonBtn.setTextColor(Color.parseColor("#ffffff"))

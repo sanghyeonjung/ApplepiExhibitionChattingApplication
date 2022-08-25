@@ -39,9 +39,7 @@ class LoginActivity : AppCompatActivity() {
                         //val user = auth?.currentUser
                         db.collection("user")
                             .document(UtilCode.getInstance().uid!!)
-                            .set(hashMapOf("id" to "${emailEditText.text.toString().trim()}",
-                                "score" to "0"))
-
+                            .set(hashMapOf("id" to "${emailEditText.text.toString().split('@')[0].trim()}"))
                         Toast.makeText(this, "Authentication success.", Toast.LENGTH_SHORT).show()
                     } else {
                         Toast.makeText(

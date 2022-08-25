@@ -1,10 +1,12 @@
 package com.example.applepiexhibitionchattingapplication
 
+import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.FrameLayout
+import android.widget.ImageButton
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.google.firebase.database.DatabaseReference
@@ -18,9 +20,14 @@ class MainActivity : AppCompatActivity() {
         val fragmentWebtoonBtn = findViewById<Button>(R.id.mainButtonFragmentWebtoon)
         val fragmentMovieBtn = findViewById<Button>(R.id.mainButtonFragmentMovie)
         val fragmentDramaBtn = findViewById<Button>(R.id.mainButtonFragmentDrama)
+        val optionBtn = findViewById<ImageButton>(R.id.mainOptionImageButton)
         val test = findViewById<TextView>(R.id.mainTestTextview)
         var database: DatabaseReference = Firebase.database.reference
         database.child("chatrooms").child("chatroomname").child("comments").child("commentname").child("message").setValue("write")
+
+        optionBtn.setOnClickListener {
+            startActivity(Intent(this@MainActivity,OptionActivity::class.java))
+        }
         fragmentWebtoonBtn.setOnClickListener {
             fragmentWebtoonBtn.setBackgroundResource(R.drawable.custom_round_click_fragmentbutton)
             fragmentWebtoonBtn.setTextColor(Color.parseColor("#ffffff"))

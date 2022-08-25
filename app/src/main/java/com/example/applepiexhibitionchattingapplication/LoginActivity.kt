@@ -32,8 +32,7 @@ class LoginActivity : AppCompatActivity() {
             auth!!.createUserWithEmailAndPassword(
                 emailEditText.text.toString().trim(),
                 passwordEditText.text.toString().trim()
-            )
-                .addOnCompleteListener(this) {
+            ).addOnCompleteListener(this) {
                     if (it.isSuccessful) {
                         val db = Firebase.firestore
                         //val user = auth?.currentUser

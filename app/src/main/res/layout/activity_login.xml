@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity">
+    <ImageView
+        android:id="@+id/imageviewLogoLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="147dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/emailEditText"
+        android:layout_width="197dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="89dp"
+        android:hint="e-mail"
+        android:inputType="textEmailAddress"
+        android:paddingLeft="20dp"
+        android:textColorHint="#C7D7CD"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imageviewLogoLogin" />
+
+    <EditText
+        android:id="@+id/passwordEditText"
+        android:layout_width="197dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="9dp"
+        android:hint="password"
+        android:inputType="textPassword"
+        android:paddingLeft="20dp"
+        android:textColorHint="#C7D7CD"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/emailEditText" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/signInButton"
+        android:layout_width="197dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="74dp"
+        android:text="로그인"
+        android:textColor="#E5EDE8"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/passwordEditText" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/signUpButton"
+        android:layout_width="197dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="9dp"
+        android:text="회원가입"
+        android:textColor="#E5EDE8"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/signInButton" />
+</androidx.constraintlayout.widget.ConstraintLayout>

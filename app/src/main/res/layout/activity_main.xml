@@ -153,6 +153,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/mainChattingListTextview" />
 
+<!--
     <ImageButton
         android:id="@+id/mainAddImageButton"
         android:layout_width="64dp"
@@ -163,5 +164,6 @@
         android:src="@drawable/ic_add"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

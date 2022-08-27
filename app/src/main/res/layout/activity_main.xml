@@ -122,16 +122,6 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
-        android:id="@+id/mainTestTextview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="테스트"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/mainKeywordLayout" />
-
-    <TextView
         android:id="@+id/mainChattingListTextview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -153,17 +143,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/mainChattingListTextview" />
 
-<!--
     <ImageButton
         android:id="@+id/mainAddImageButton"
         android:layout_width="64dp"
         android:layout_height="64dp"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="48dp"
-        android:background="@drawable/custom_circle_red_button"
-        android:src="@drawable/ic_add"
+        android:src="@drawable/ic_back_icon"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
--->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

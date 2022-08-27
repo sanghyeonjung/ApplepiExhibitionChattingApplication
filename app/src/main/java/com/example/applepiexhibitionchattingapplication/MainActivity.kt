@@ -21,17 +21,14 @@ class MainActivity : AppCompatActivity() {
         val fragmentMovieBtn = findViewById<Button>(R.id.mainButtonFragmentMovie)
         val fragmentDramaBtn = findViewById<Button>(R.id.mainButtonFragmentDrama)
         val optionBtn = findViewById<ImageButton>(R.id.mainOptionImageButton)
-        //val addBtn = findViewById<ImageButton>(R.id.mainAddImageButton)
-        val test = findViewById<TextView>(R.id.mainTestTextview)
-        var database: DatabaseReference = Firebase.database.reference
-        database.child("chatrooms").child("chatroomname").child("comments").child("commentname").child("message").setValue("write")
+        val addBtn = findViewById<ImageButton>(R.id.mainAddImageButton)
 
         optionBtn.setOnClickListener {
             startActivity(Intent(this@MainActivity,OptionActivity::class.java))
         }
-        //addBtn.setOnClickListener{
-         //   startActivity(Intent(this@MainActivity,AddChatRoomActivity::class.java))
-        //}
+        addBtn.setOnClickListener{
+            startActivity(Intent(this@MainActivity,AddChatRoomActivity::class.java))
+        }
         fragmentWebtoonBtn.setOnClickListener {
             fragmentWebtoonBtn.setBackgroundResource(R.drawable.custom_round_click_fragmentbutton)
             fragmentWebtoonBtn.setTextColor(Color.parseColor("#ffffff"))

@@ -14,7 +14,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 
-class ChattingListRecyclerViewAdapter(private val data : List<String>,private val activity: Activity) : RecyclerView.Adapter<ChattingListRecyclerViewAdapter.ViewHolder>() {
+class ChattingListRecyclerViewAdapter(private val data: List<String>, private val activity: Activity) : RecyclerView.Adapter<ChattingListRecyclerViewAdapter.ViewHolder>() {
     class ViewHolder(val row : View) : RecyclerView.ViewHolder(row){
         val button : Button = row.findViewById<Button>(R.id.item_btn)
     }

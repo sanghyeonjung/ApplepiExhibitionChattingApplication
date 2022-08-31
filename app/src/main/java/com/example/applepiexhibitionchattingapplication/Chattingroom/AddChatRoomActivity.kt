@@ -1,9 +1,11 @@
-package com.example.applepiexhibitionchattingapplication
+package com.example.applepiexhibitionchattingapplication.Chattingroom
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.*
+import com.example.applepiexhibitionchattingapplication.MainActivity
+import com.example.applepiexhibitionchattingapplication.R
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 
@@ -21,7 +23,7 @@ class AddChatRoomActivity : AppCompatActivity() {
 
 
         backBtn.setOnClickListener {
-            startActivity(Intent(this@AddChatRoomActivity,MainActivity::class.java))
+            startActivity(Intent(this@AddChatRoomActivity, MainActivity::class.java))
         }
 
         confirmBtn.setOnClickListener{
@@ -32,12 +34,12 @@ class AddChatRoomActivity : AppCompatActivity() {
             else
             {
                 when(radioGroup.checkedRadioButtonId){
-                    R.id.addWebtoonRadioButton -> database.child("webtoon").push().setValue(chatEdittext.text.toString())
-                    R.id.addMovieRadioButton -> database.child("movie").push().setValue(chatEdittext.text.toString())
-                    R.id.addDramaRadioButton -> database.child("drama").push().setValue(chatEdittext.text.toString())
+                    R.id.addWebtoonRadioButton -> database.child("webtoon").child(chatEdittext.text.toString()).setValue("")
+                    R.id.addMovieRadioButton -> database.child("movie").child(chatEdittext.text.toString()).setValue("")
+                    R.id.addDramaRadioButton -> database.child("drama").child(chatEdittext.text.toString()).setValue("")
                     else -> Toast.makeText(this,"장르를 선택해주세요.",Toast.LENGTH_SHORT).show()
                 }
-                startActivity(Intent(this@AddChatRoomActivity,MainActivity::class.java))
+                startActivity(Intent(this@AddChatRoomActivity, MainActivity::class.java))
             }
         }
     }

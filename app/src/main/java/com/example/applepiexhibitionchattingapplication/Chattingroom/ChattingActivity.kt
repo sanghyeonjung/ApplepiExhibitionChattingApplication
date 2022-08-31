@@ -1,7 +1,8 @@
-package com.example.applepiexhibitionchattingapplication
+package com.example.applepiexhibitionchattingapplication.Chattingroom
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.applepiexhibitionchattingapplication.R
 
 class ChattingActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

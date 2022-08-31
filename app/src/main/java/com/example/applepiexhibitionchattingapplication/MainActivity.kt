@@ -5,18 +5,21 @@ import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
-import android.widget.FrameLayout
 import android.widget.ImageButton
-import android.widget.TextView
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.ktx.database
-import com.google.firebase.ktx.Firebase
+import com.example.applepiexhibitionchattingapplication.Chattingroom.AddChatRoomActivity
+import com.example.applepiexhibitionchattingapplication.Fragment.DramaFragment
+import com.example.applepiexhibitionchattingapplication.Fragment.MovieFragment
+import com.example.applepiexhibitionchattingapplication.Fragment.WebtoonFragment
+import com.example.applepiexhibitionchattingapplication.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var binding : ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        binding = DataBindingUtil.setContentView(this,R.layout.activity_main)
         val fragmentWebtoonBtn = findViewById<Button>(R.id.mainButtonFragmentWebtoon)
         val fragmentMovieBtn = findViewById<Button>(R.id.mainButtonFragmentMovie)
         val fragmentDramaBtn = findViewById<Button>(R.id.mainButtonFragmentDrama)
@@ -27,7 +30,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this@MainActivity,OptionActivity::class.java))
         }
         addBtn.setOnClickListener{
-            startActivity(Intent(this@MainActivity,AddChatRoomActivity::class.java))
+            startActivity(Intent(this@MainActivity, AddChatRoomActivity::class.java))
         }
         fragmentWebtoonBtn.setOnClickListener {
             fragmentWebtoonBtn.setBackgroundResource(R.drawable.custom_round_click_fragmentbutton)

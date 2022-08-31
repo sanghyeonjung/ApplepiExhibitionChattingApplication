@@ -1,4 +1,4 @@
-package com.example.applepiexhibitionchattingapplication
+package com.example.applepiexhibitionchattingapplication.Login
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -7,6 +7,9 @@ import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import com.example.applepiexhibitionchattingapplication.MainActivity
+import com.example.applepiexhibitionchattingapplication.R
+import com.example.applepiexhibitionchattingapplication.UtilCode
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase

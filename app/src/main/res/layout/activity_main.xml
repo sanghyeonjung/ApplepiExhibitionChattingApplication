@@ -147,7 +147,14 @@
             android:layout_marginTop="12dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/mainChattingListTextview" />
+            app:layout_constraintTop_toBottomOf="@id/mainChattingListTextview">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/mainChattingRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+        </FrameLayout>
 
         <ImageButton
             android:id="@+id/mainAddImageButton"

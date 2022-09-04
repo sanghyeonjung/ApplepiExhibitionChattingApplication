@@ -34,9 +34,25 @@ class AddChatRoomActivity : AppCompatActivity() {
             else
             {
                 when(radioGroup.checkedRadioButtonId){
-                    R.id.addWebtoonRadioButton -> database.child("webtoon").child(chatEdittext.text.toString()).setValue("")
-                    R.id.addMovieRadioButton -> database.child("movie").child(chatEdittext.text.toString()).setValue("")
-                    R.id.addDramaRadioButton -> database.child("drama").child(chatEdittext.text.toString()).setValue("")
+                    R.id.addWebtoonRadioButton -> {
+                        database.child("webtoon").child(chatEdittext.text.toString())
+                            .child("chat").child("admin : 채팅방이 개설되었습니다").setValue("")
+                        database.child("webtoon").child(chatEdittext.text.toString())
+                            .child("cnt").setValue("2")
+                    }
+                    R.id.addMovieRadioButton -> {
+                        database.child("movie").child(chatEdittext.text.toString())
+                            .child("chat").child("admin : 채팅방이 개설되었습니다").setValue("")
+                        database.child("movie").child(chatEdittext.text.toString())
+                            .child("cnt").setValue("2")
+                    }
+                    R.id.addDramaRadioButton ->
+                    {
+                        database.child("drama").child(chatEdittext.text.toString())
+                            .child("chat").child("admin : 채팅방이 개설되었습니다").setValue("")
+                        database.child("drama").child(chatEdittext.text.toString())
+                            .child("cnt").setValue("2")
+                    }
                     else -> Toast.makeText(this,"장르를 선택해주세요.",Toast.LENGTH_SHORT).show()
                 }
                 startActivity(Intent(this@AddChatRoomActivity, MainActivity::class.java))

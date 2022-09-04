@@ -35,10 +35,11 @@
         <entry key="..\:/Users/jeong/AndroidStudioProjects/ApplepiExhibitionChattingApplication/app/src/main/res/drawable/custom_round_unclicked_fragmentbutton.xml" value="0.1475" />
         <entry key="..\:/Users/jeong/AndroidStudioProjects/ApplepiExhibitionChattingApplication/app/src/main/res/drawable/ic_add.xml" value="0.1655" />
         <entry key="..\:/Users/jeong/AndroidStudioProjects/ApplepiExhibitionChattingApplication/app/src/main/res/drawable/ic_applepilogo.xml" value="0.1475" />
-        <entry key="..\:/Users/jeong/AndroidStudioProjects/ApplepiExhibitionChattingApplication/app/src/main/res/layout/activity_add_chat_room.xml" value="0.20820863616930313" />
+        <entry key="..\:/Users/jeong/AndroidStudioProjects/ApplepiExhibitionChattingApplication/app/src/main/res/layout/activity_add_chat_room.xml" value="0.136" />
         <entry key="..\:/Users/jeong/AndroidStudioProjects/ApplepiExhibitionChattingApplication/app/src/main/res/layout/activity_chatting.xml" value="0.20820863616930313" />
-        <entry key="..\:/Users/jeong/AndroidStudioProjects/ApplepiExhibitionChattingApplication/app/src/main/res/layout/activity_main.xml" value="0.16" />
+        <entry key="..\:/Users/jeong/AndroidStudioProjects/ApplepiExhibitionChattingApplication/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Users/jeong/AndroidStudioProjects/ApplepiExhibitionChattingApplication/app/src/main/res/layout/activity_option.xml" value="0.10175511909736733" />
+        <entry key="..\:/Users/jeong/AndroidStudioProjects/ApplepiExhibitionChattingApplication/app/src/main/res/layout/chatting_item.xml" value="0.12974976830398516" />
         <entry key="..\:/Users/jeong/AndroidStudioProjects/ApplepiExhibitionChattingApplication/app/src/main/res/layout/chatting_list_item.xml" value="0.20820863616930313" />
         <entry key="..\:/Users/jeong/AndroidStudioProjects/ApplepiExhibitionChattingApplication/app/src/main/res/layout/fragment_drama.xml" value="0.19615384615384615" />
         <entry key="..\:/Users/jeong/AndroidStudioProjects/ApplepiExhibitionChattingApplication/app/src/main/res/layout/fragment_movie.xml" value="0.1" />

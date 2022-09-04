@@ -28,8 +28,10 @@ class MainActivity : AppCompatActivity() {
         val fragmentDramaBtn = findViewById<Button>(R.id.mainButtonFragmentDrama)
         val optionBtn = findViewById<ImageButton>(R.id.mainOptionImageButton)
         val addBtn = findViewById<ImageButton>(R.id.mainAddImageButton)
+
         chattingListAdapter = ChattingListRecyclerViewAdapter()
         binding.mainChattingRecyclerView.adapter = chattingListAdapter
+
             optionBtn.setOnClickListener {
             startActivity(Intent(this@MainActivity,OptionActivity::class.java))
         }
@@ -38,6 +40,9 @@ class MainActivity : AppCompatActivity() {
         }
         fragmentWebtoonBtn.setOnClickListener {
             setData("webtoon")
+            UtilCode.currentGenre = "webtoon"
+
+            Log.e("currentGenre","${UtilCode.currentGenre}")
             fragmentWebtoonBtn.setBackgroundResource(R.drawable.custom_round_click_fragmentbutton)
             fragmentWebtoonBtn.setTextColor(Color.parseColor("#ffffff"))
             fragmentDramaBtn.setBackgroundResource(R.drawable.custom_round_unclicked_fragmentbutton)
@@ -47,9 +52,11 @@ class MainActivity : AppCompatActivity() {
         }
         fragmentMovieBtn.setOnClickListener {
             setData("movie")
+            UtilCode.currentGenre = "movie"
+
+            Log.e("currentGenre","${UtilCode.currentGenre}")
             fragmentMovieBtn.setBackgroundResource(R.drawable.custom_round_click_fragmentbutton)
             fragmentMovieBtn.setTextColor(Color.parseColor("#ffffff"))
-
             fragmentDramaBtn.setBackgroundResource(R.drawable.custom_round_unclicked_fragmentbutton)
             fragmentWebtoonBtn.setBackgroundResource(R.drawable.custom_round_unclicked_fragmentbutton)
             fragmentDramaBtn.setTextColor(Color.parseColor("#ff5959"))
@@ -57,6 +64,8 @@ class MainActivity : AppCompatActivity() {
         }
         fragmentDramaBtn.setOnClickListener {
             setData("drama")
+            UtilCode.currentGenre = "drama"
+            Log.e("currentGenre","${UtilCode.currentGenre}")
             fragmentDramaBtn.setBackgroundResource(R.drawable.custom_round_click_fragmentbutton)
             fragmentDramaBtn.setTextColor(Color.parseColor("#ffffff"))
             fragmentWebtoonBtn.setBackgroundResource(R.drawable.custom_round_unclicked_fragmentbutton)
@@ -65,24 +74,31 @@ class MainActivity : AppCompatActivity() {
             fragmentMovieBtn.setTextColor(Color.parseColor("#ff5959"))
         }
     }
+
     private fun setData(genre : String){
             database.child(genre).get().addOnSuccessListener {
                 it.value?.let { value ->
                     val result = value as HashMap<String,Any>?
-                    chattingListAdapter.apply {
-                        data.clear()
-                    }
                     if (result != null) {
+                        chattingListAdapter.apply {
+                            data.clear()
+                            notifyDataSetChanged()
+                        }
                         for(key in result.keys) {
-                            chattingListAdapter.apply {
-                                data.add(key)
+                            if(key != "cnt")
+                            {
+                                chattingListAdapter.apply {
+                                    data.add(key)
+                                    Log.d("data","$key")
+                                }
                             }
                         }
+                        chattingListAdapter.notifyDataSetChanged()
                     }
-                    chattingListAdapter.notifyDataSetChanged()
                 }
             }.addOnFailureListener {
                 Log.e("firebase","Error getting data", it)
             }
     }
+
 }

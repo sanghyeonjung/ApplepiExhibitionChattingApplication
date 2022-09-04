@@ -69,7 +69,7 @@
 
             <EditText
                 android:id="@+id/chattingChatEdittext"
-                android:layout_width="316dp"
+                android:layout_width="250dp"
                 android:layout_height="39dp"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="8dp"
@@ -82,15 +82,17 @@
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/chattingSendButton"
-                android:layout_width="42dp"
-                android:layout_height="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
+                android:layout_marginEnd="24dp"
                 android:background="#f9f9f9"
                 android:fontFamily="@font/suitsemibold"
                 android:text="보내기"
                 android:textColor="#ff5959"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="@id/chattingChatEdittext"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/chattingChatEdittext"
                 app:layout_constraintTop_toTopOf="@id/chattingChatEdittext" />
 

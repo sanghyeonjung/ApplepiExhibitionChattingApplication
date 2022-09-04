@@ -15,80 +15,88 @@ import com.google.firebase.database.ktx.database
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import java.util.*
+import kotlin.collections.HashMap
 
 class ChattingActivity : AppCompatActivity() {
     lateinit var binding : ActivityChattingBinding
     lateinit var inChattingAdapter : InChattingRecyclerView
     lateinit var database : DatabaseReference
+    lateinit var baseRef : DatabaseReference
+    var userName :String = ""
+    var cnt : Int =0
     val db = FirebaseFirestore.getInstance()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_chatting)
         database = FirebaseDatabase.getInstance().getReference()
         val nowChatroom = intent.getStringExtra("chatroomname").toString()
-        Log.e("nowChatroom","$nowChatroom")
-        var auth: FirebaseAuth = FirebaseAuth.getInstance()
+        baseRef = database.child(UtilCode.currentGenre).child(nowChatroom)
+
         binding = DataBindingUtil.setContentView(this,R.layout.activity_chatting)
         inChattingAdapter = InChattingRecyclerView()
         binding.chattingRecyclerView.adapter = inChattingAdapter
         binding.chattingRoomNameTextview.text = intent.getStringExtra("chatroomname")
-
-
-
         val chatEdittext = binding.chattingChatEdittext
-        setData(nowChatroom)
+        setData()
+        db.collection("user").document(UtilCode.getInstance().uid!!).get()
+            .addOnSuccessListener { it->
+                if(it != null)
+                {
+                    userName = it.data!!.get("id").toString()
+                    Log.e("set username","$userName")
+                }
+                else
+                {
+                    Log.e("error","error")
+                }
+            }.addOnFailureListener {
+                Log.e("error","username get fail")
+            }
+        baseRef.child("cnt").get().addOnSuccessListener {
+            it.value?.let { value ->
+                val str : String = value.toString()
+                cnt = str.toInt()
+                Log.e("set cnt","$cnt")
+            }
+        }.addOnFailureListener {
+            Log.e("error","cnt get fail")
+        }
 
         binding.chattingBackImageButton.setOnClickListener {
             startActivity(Intent(this,MainActivity::class.java))
         }
-        var cnt : Int = 0
-        binding.chattingSendButton.setOnClickListener {
-            database.child(UtilCode.currentGenre)
-                .child(nowChatroom)
-                .child("cnt")
-                .addListenerForSingleValueEvent(object : ValueEventListener{
-                    override fun onDataChange(snapshot: DataSnapshot) {
-                        Log.d("type","${snapshot.value?.javaClass?.name}")
-                        val str : String = snapshot.value as String
-                        cnt = str.toInt()
-                    }
 
-                    override fun onCancelled(error: DatabaseError) {
-                        TODO("Not yet implemented")
-                    }
-                })
-            Log.d("cnt","$cnt")
-            var userName :String = ""
-            db.collection("user")
-                .document(UtilCode.getInstance().uid!!)
-                .get()
-                .addOnSuccessListener { it->
-                    userName = it.data!!.get("id").toString()
-                    Log.e("userNameout","$userName")
-                    database.child(UtilCode.currentGenre).child(nowChatroom).child("chat").child(cnt.toString()).setValue("${it.data!!.get("id").toString()}:${chatEdittext.text}")
-                    database.child(UtilCode.currentGenre).child(nowChatroom).child("cnt").setValue((cnt+1).toString())
-                }
-            setData(nowChatroom)
+        binding.chattingSendButton.setOnClickListener {
+            Log.d("cnt.setonclick","$cnt")
+            baseRef.child("chat").child("$cnt").setValue("${userName}:${chatEdittext.text}")
+            baseRef.child("cnt").setValue("${cnt+1}")
+            cnt++
+            setData()
         }
+
     }
-    private fun setData(chatroom : String){
-        database.child(UtilCode.currentGenre).child(chatroom)
-            .child("chat").get().addOnSuccessListener {
+    private fun setData()
+    {
+        baseRef.child("chat").get().addOnSuccessListener {
             it.value?.let { value ->
                 Log.d("chatting value","$value")
                 val result = value as HashMap<String,Any>?
                 if (result != null) {
                     inChattingAdapter.apply {
                         data.clear()
-                        notifyDataSetChanged()
                     }
-                    for(value in result.values) {
+                    for(v in result.values) {
+                        Log.d("value","${result.values}")
                         inChattingAdapter.apply {
-                            data.add(value as String)
+                            data.add(v.toString())
                         }
                     }
+                    inChattingAdapter.apply {
+                        notifyDataSetChanged()
+                        Log.e("datas","$data")
+                    }
                 }
-                inChattingAdapter.notifyDataSetChanged()
             }
         }.addOnFailureListener {
             Log.e("firebase","Error getting data", it)

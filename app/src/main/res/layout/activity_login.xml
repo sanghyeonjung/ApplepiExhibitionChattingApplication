@@ -5,35 +5,58 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Login.LoginActivity">
-    <ImageView
-        android:id="@+id/imageviewLogoLogin"
+
+    <TextView
+        android:id="@+id/textViewTopHelloLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="147dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="58dp"
+        android:fontFamily="@font/suitbold"
+        android:text="반가워요!\n같이 채팅앱을 사용해볼까요?"
+        android:textColor="#1d1d1d"
+        android:textSize="28sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/textViewGrayTopHelloLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="14dp"
+        android:fontFamily="@font/suitmedium"
+        android:text="애플파이 전시회에 온 것을 환영해요!\n채팅앱을 사용하기전에 로그인 혹은 회원가입을 해주세요!"
+        android:textColor="#afafaf"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textViewTopHelloLogin" />
+
+
     <EditText
         android:id="@+id/emailEditText"
-        android:layout_width="197dp"
+        android:layout_width="match_parent"
         android:layout_height="54dp"
-        android:layout_marginTop="89dp"
-        android:hint="e-mail"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="24dp"
+        android:hint="이메일을 입력해주세요."
         android:inputType="textEmailAddress"
         android:paddingLeft="20dp"
         android:textColorHint="#C7D7CD"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imageviewLogoLogin" />
+        app:layout_constraintTop_toBottomOf="@id/textViewGrayTopHelloLogin" />
 
     <EditText
         android:id="@+id/passwordEditText"
-        android:layout_width="197dp"
+        android:layout_width="match_parent"
         android:layout_height="54dp"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="9dp"
-        android:hint="password"
+        android:layout_marginEnd="24dp"
+        android:hint="비밀번호를 입력해주세요."
         android:inputType="textPassword"
         android:paddingLeft="20dp"
         android:textColorHint="#C7D7CD"
@@ -44,25 +67,40 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/signInButton"
-        android:layout_width="197dp"
+        android:layout_width="160dp"
         android:layout_height="54dp"
-        android:layout_marginTop="74dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/custom_login_button"
         android:text="로그인"
-        android:textColor="#E5EDE8"
+        android:textColor="#ffffff"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/passwordEditText" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/signUpButton"
-        android:layout_width="197dp"
+        android:layout_width="160dp"
         android:layout_height="54dp"
-        android:layout_marginTop="9dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="36dp"
+        android:background="@drawable/custom_signin_button"
+        android:fontFamily="@font/suitsemibold"
         android:text="회원가입"
-        android:textColor="#E5EDE8"
+        android:textColor="#b52426"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/signInButton" />
+        app:layout_constraintTop_toBottomOf="@id/passwordEditText" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="48dp"
+        android:fontFamily="@font/suitmedium"
+        android:text="아이디와 비밀번호 입력 후 회원가입을 누르면\n자동으로 회원가입이 진행됩니다."
+        android:textColor="#afafaf"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

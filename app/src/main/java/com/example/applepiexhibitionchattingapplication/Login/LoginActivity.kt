@@ -24,10 +24,36 @@ class LoginActivity : AppCompatActivity() {
             val signInBtn = findViewById<Button>(R.id.signInButton)
             val signUpBtn = findViewById<Button>(R.id.signUpButton)
             signInBtn.setOnClickListener {
-                loginEmail()
+                if(!emailEditText.text.isEmpty()) {
+                    if(!passwordEditText.text.isEmpty())
+                    {
+                        loginEmail()
+                    }
+                }
+                else
+                {
+                    Toast.makeText(
+                        this,
+                        "이메일과 비밀번호를 작성해주세요.",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
             }
             signUpBtn.setOnClickListener {
-                createEmail()
+                if(!emailEditText.text.isEmpty()) {
+                    if(!passwordEditText.text.isEmpty())
+                    {
+                        createEmail()
+                    }
+                }
+                else
+                {
+                    Toast.makeText(
+                        this,
+                        "이메일과 비밀번호를 작성해주세요.",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
             }
         }
 

@@ -7,8 +7,7 @@
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp">
+        android:layout_height="52dp">
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/item_btn"
             android:layout_width="match_parent"
